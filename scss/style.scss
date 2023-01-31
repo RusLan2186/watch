@@ -1,0 +1,332 @@
+@use "sass:math";
+@import "reset.scss";
+
+@font-face {
+   font-family: "SFProDisplay";
+   src: url("../fonts/SFProDisplay-Regular.eot");
+   src: local("☺"), url("../fonts/SFProDisplay-Regular.woff") format("woff"),
+      url("../fonts/SFProDisplay-Regular.ttf") format("truetype");
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: "SFProSemibold";
+   src: url("../fonts/SFProDisplay-Semibold.eot");
+   src: local("☺"), url("../fonts/SFProDisplay-Semibold.woff") format("woff"),
+      url("../fonts/SFProDisplay-Semibold.ttf") format("truetype");
+   font-weight: normal;
+   font-style: normal;
+}
+
+.example {
+   margin-top: 200px;
+   margin-bottom: 100px;
+   font-family: SFProDisplay;
+}
+.example_2 {
+   font-family: SFProSemibold;
+}
+// ..................... ПЕРЕМЕННЫЕ.......................................................
+
+$maxWidthContainer: 1920;
+$maxWidth: 1920;
+
+// .......................МИКСИНЫ.ШАБЛОНЫ ...............................................
+
+//  адаптивный текст
+// pcSize - макетныйразмер шрифта, mobsize - минимальный размер шрифта
+@mixin adaptiv-text($pcSize, $mobSize) {
+   $addSize: $pcSize - $mobSize;
+   $maxWidth: $maxWidth - 320;
+   font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer}));
+   @media (min-width: 768px) {
+      font-size: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidthContainer}));
+   }
+   @media (min-width: #{$maxWidthContainer + px}) {
+      font-size: #{$pcSize + px};
+   }
+}
+
+//.................... ПЕРЕВОД В ДРУГИЕ ЕДИНИЦЫ ИЗМЕРЕНИЯ............................
+// перевод в  %
+@function prc($pxOne, $pxTwo) {
+   $result: math.div($pxOne, $pxTwo) * 100%;
+   @return $result;
+}
+
+// перевод в  REM
+@function rem($px) {
+   $result: math.div($px, 16) + rem;
+   @return $result;
+}
+
+// перевод в  EM
+@function em($px) {
+   $result: math.div($px, 16) + em;
+   @return $result;
+}
+// ...............................ФУНКЦИЯ АДАПТИВ..............................................................
+@function adaptive($minVal, $maxVal) {
+   $ans: calc(#{$minVal + px} + (#{$maxVal} - #{$minVal}) * ((100vw - 320px) / (#{$maxWidth} - 320)));
+   @return #{$ans};
+}
+
+// ............................КОНТЕЙНЕР.................................................
+
+[class*="__container"] {
+   max-width: rem(1920);
+   margin: 0 auto;
+   padding: 0 rem(15);
+   // @media (max-width: 1199.98px) {
+   //    max-width: 970px;
+   // }
+   // @media (max-width: 991.98px) {
+   //    max-width: 750px;
+   // }
+   // @media (max-width: 767.98px) {
+   //    max-width: none;
+   // }
+}
+
+// ................................GENERAL..................................................
+body {
+   font-family: "SFProDisplay";
+   font-size: rem(25.3);
+   color: #000000;
+}
+
+.wrapper {
+   min-height: 100%;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+}
+
+.title {
+   font-family: SFProSemibold;
+   @include adaptiv-text(71.4, 30);
+   line-height: 1.2;
+   margin: 0 auto;
+   text-align: center;
+}
+
+// .......................................header-block.......................................
+
+.header-block {
+   padding-top: adaptive(30, 113);
+   text-align: center;
+}
+
+.header-block__logo {
+   display: inline-block;
+   margin-bottom: adaptive(40, 75);
+   @media (max-width: 991.98px) {
+      img {
+         @media (max-width: 991.98px) {
+            width: 80%;
+         }
+         @media (max-width: 767.98px) {
+            width: 50%;
+         }
+      }
+   }
+}
+.header-block__title {
+   max-width: rem(650);
+}
+
+.header-block__image {
+   img {
+      max-width: 100%;
+      transition: 0.3s all ease 0s;
+   }
+}
+// ............................function..........................................
+.function {
+   margin-bottom: adaptive(20, 91.5);
+}
+.function__container {
+}
+.function__title {
+   max-width: rem(1040);
+   text-align: center;
+   &:not(:last-child) {
+      margin-bottom: adaptive(50, 150);
+   }
+}
+.function__image {
+   width: 100%;
+   position: relative;
+   padding-bottom: 99%;
+   img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+   }
+}
+// ...............................protection................................
+.protection {
+   padding-top: adaptive(20, 91.5);
+   margin-bottom: adaptive(20, 136);
+}
+.protection__container {
+}
+.protection__title {
+   &:not(:last-child) {
+      margin-bottom: adaptive(10, 130);
+   }
+}
+
+.protection__image {
+   text-align: center;
+   img {
+      max-width: 100%;
+   }
+}
+
+// ......................................peculiarities......................................
+.peculiarities {
+   padding-top: adaptive(10, 91.5);
+   margin-bottom: adaptive(30, 136);
+}
+.peculiarities__container {
+}
+.peculiarities__image {
+   width: 100%;
+   position: relative;
+   padding-bottom: 99%;
+   img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+   }
+}
+
+// ....................................characteristics....................................
+.characteristics {
+   margin-bottom: adaptive(50, 146);
+}
+.characteristics__container {
+}
+.characteristics__title {
+   &:not(:last-child) {
+      margin-bottom: adaptive(20, 96);
+   }
+}
+.characteristics__items {
+   display: grid;
+   grid-template-columns: repeat(2, 300px);
+   justify-content: center;
+   column-gap: adaptive(30, 170);
+   row-gap: rem(100);
+   @media (max-width: 700px) {
+      grid-template-columns: 1fr;
+      row-gap: rem(50);
+   }
+}
+.characteristics__item {
+}
+.item-1 {
+   @media (min-width: 700px) {
+      max-width: rem(270);
+   }
+}
+.item-2 {
+   @media (min-width: 700px) {
+      width: rem(330);
+   }
+}
+.item-3 {
+   @media (min-width: 700px) {
+      max-width: rem(200);
+   }
+}
+.item-4 {
+   @media (min-width: 700px) {
+      width: rem(330);
+   }
+}
+.item-5 {
+   @media (min-width: 700px) {
+      width: rem(350);
+   }
+}
+.item-6 {
+   @media (min-width: 700px) {
+      max-width: rem(200);
+      align-self: center;
+   }
+}
+.item-7 {
+   @media (min-width: 700px) {
+      width: rem(331.3);
+   }
+}
+.item-8 {
+   @media (min-width: 700px) {
+      width: rem(305);
+   }
+}
+.item-9 {
+   &:after {
+      @media (min-width: 700px) {
+         display: none;
+      }
+   }
+}
+.item-10 {
+   &:after {
+      display: none;
+   }
+}
+
+.item-characteristics {
+   position: relative;
+   &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      min-width: rem(143);
+      bottom: rem(-50);
+      height: rem(1);
+      background: #000;
+      max-width: rem(270);
+      @media (max-width: 700px) {
+         bottom: rem(-20);
+         min-width: 100%;
+         // min-width: rem(243);
+      }
+   }
+}
+.item-characteristics__text {
+   @include adaptiv-text(25.3, 20);
+   // font-size: rem(25.3);
+   line-height: 1.2;
+   font-weight: 600;
+}
+
+// ......................................equipment........................................
+.equipment {
+}
+.equipment__container {
+}
+.equipment__image {
+   position: relative;
+   width: 100%;
+   padding-bottom: 99%;
+   img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+   }
+}

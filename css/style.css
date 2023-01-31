@@ -1,0 +1,375 @@
+@charset "UTF-8";
+/*Обнуление*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 16px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*--------------------*/
+@font-face {
+  font-family: "SFProDisplay";
+  src: url("../fonts/SFProDisplay-Regular.eot");
+  src: local("☺"), url("../fonts/SFProDisplay-Regular.woff") format("woff"), url("../fonts/SFProDisplay-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SFProSemibold";
+  src: url("../fonts/SFProDisplay-Semibold.eot");
+  src: local("☺"), url("../fonts/SFProDisplay-Semibold.woff") format("woff"), url("../fonts/SFProDisplay-Semibold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.example {
+  margin-top: 200px;
+  margin-bottom: 100px;
+  font-family: SFProDisplay;
+}
+
+.example_2 {
+  font-family: SFProSemibold;
+}
+
+[class*=__container] {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 0.9375rem;
+}
+
+body {
+  font-family: "SFProDisplay";
+  font-size: 1.58125rem;
+  color: #000000;
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-family: SFProSemibold;
+  font-size: calc(30px + 41.4 * ((100vw - 320px) / 1920));
+  line-height: 1.2;
+  margin: 0 auto;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .title {
+    font-size: calc(30px + 41.4 * (100vw / 1920));
+  }
+}
+@media (min-width: 1920px) {
+  .title {
+    font-size: 71.4px;
+  }
+}
+
+.header-block {
+  padding-top: calc(30px + (113 - 30) * ((100vw - 320px) / (1920 - 320)));
+  text-align: center;
+}
+
+.header-block__logo {
+  display: inline-block;
+  margin-bottom: calc(40px + (75 - 40) * ((100vw - 320px) / (1920 - 320)));
+}
+@media (max-width: 991.98px) and (max-width: 991.98px) {
+  .header-block__logo img {
+    width: 80%;
+  }
+}
+@media (max-width: 991.98px) and (max-width: 767.98px) {
+  .header-block__logo img {
+    width: 50%;
+  }
+}
+
+.header-block__title {
+  max-width: 40.625rem;
+}
+
+.header-block__image img {
+  max-width: 100%;
+  transition: 0.3s all ease 0s;
+}
+
+.function {
+  margin-bottom: calc(20px + (91.5 - 20) * ((100vw - 320px) / (1920 - 320)));
+}
+
+.function__title {
+  max-width: 65rem;
+  text-align: center;
+}
+.function__title:not(:last-child) {
+  margin-bottom: calc(50px + (150 - 50) * ((100vw - 320px) / (1920 - 320)));
+}
+
+.function__image {
+  width: 100%;
+  position: relative;
+  padding-bottom: 99%;
+}
+.function__image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.protection {
+  padding-top: calc(20px + (91.5 - 20) * ((100vw - 320px) / (1920 - 320)));
+  margin-bottom: calc(20px + (136 - 20) * ((100vw - 320px) / (1920 - 320)));
+}
+
+.protection__title:not(:last-child) {
+  margin-bottom: calc(10px + (130 - 10) * ((100vw - 320px) / (1920 - 320)));
+}
+
+.protection__image {
+  text-align: center;
+}
+.protection__image img {
+  max-width: 100%;
+}
+
+.peculiarities {
+  padding-top: calc(10px + (91.5 - 10) * ((100vw - 320px) / (1920 - 320)));
+  margin-bottom: calc(30px + (136 - 30) * ((100vw - 320px) / (1920 - 320)));
+}
+
+.peculiarities__image {
+  width: 100%;
+  position: relative;
+  padding-bottom: 99%;
+}
+.peculiarities__image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.characteristics {
+  margin-bottom: calc(50px + (146 - 50) * ((100vw - 320px) / (1920 - 320)));
+}
+
+.characteristics__title:not(:last-child) {
+  margin-bottom: calc(20px + (96 - 20) * ((100vw - 320px) / (1920 - 320)));
+}
+
+.characteristics__items {
+  display: grid;
+  grid-template-columns: repeat(2, 300px);
+  justify-content: center;
+  -moz-column-gap: calc(30px + (170 - 30) * ((100vw - 320px) / (1920 - 320)));
+       column-gap: calc(30px + (170 - 30) * ((100vw - 320px) / (1920 - 320)));
+  row-gap: 6.25rem;
+}
+@media (max-width: 700px) {
+  .characteristics__items {
+    grid-template-columns: 1fr;
+    row-gap: 3.125rem;
+  }
+}
+
+@media (min-width: 700px) {
+  .item-1 {
+    max-width: 16.875rem;
+  }
+}
+
+@media (min-width: 700px) {
+  .item-2 {
+    width: 20.625rem;
+  }
+}
+
+@media (min-width: 700px) {
+  .item-3 {
+    max-width: 12.5rem;
+  }
+}
+
+@media (min-width: 700px) {
+  .item-4 {
+    width: 20.625rem;
+  }
+}
+
+@media (min-width: 700px) {
+  .item-5 {
+    width: 21.875rem;
+  }
+}
+
+@media (min-width: 700px) {
+  .item-6 {
+    max-width: 12.5rem;
+    align-self: center;
+  }
+}
+
+@media (min-width: 700px) {
+  .item-7 {
+    width: 20.70625rem;
+  }
+}
+
+@media (min-width: 700px) {
+  .item-8 {
+    width: 19.0625rem;
+  }
+}
+
+@media (min-width: 700px) {
+  .item-9:after {
+    display: none;
+  }
+}
+
+.item-10:after {
+  display: none;
+}
+
+.item-characteristics {
+  position: relative;
+}
+.item-characteristics:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  min-width: 8.9375rem;
+  bottom: -3.125rem;
+  height: 0.0625rem;
+  background: #000;
+  max-width: 16.875rem;
+}
+@media (max-width: 700px) {
+  .item-characteristics:after {
+    bottom: -1.25rem;
+    min-width: 100%;
+  }
+}
+
+.item-characteristics__text {
+  font-size: calc(20px + 5.3 * ((100vw - 320px) / 1920));
+  line-height: 1.2;
+  font-weight: 600;
+}
+@media (min-width: 768px) {
+  .item-characteristics__text {
+    font-size: calc(20px + 5.3 * (100vw / 1920));
+  }
+}
+@media (min-width: 1920px) {
+  .item-characteristics__text {
+    font-size: 25.3px;
+  }
+}
+
+.equipment__image {
+  position: relative;
+  width: 100%;
+  padding-bottom: 99%;
+}
+.equipment__image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
